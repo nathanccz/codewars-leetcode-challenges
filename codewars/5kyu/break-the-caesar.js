@@ -1,5 +1,6 @@
 /*
 Date of completion: 03-30-2024
+Codewars (Level 5 kyu)
 
 --------------------------------------------------------
 CHALLENGE DESCRIPTION
