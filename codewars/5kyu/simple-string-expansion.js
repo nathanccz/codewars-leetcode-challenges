@@ -19,6 +19,8 @@ Input will consist of only lowercase letters and numbers (1 to 9) in valid paren
 ANALYSIS
 -------------------------------------------------------- 
 
+NOTE: This challenge will be intentionally solved without using RegEx.
+
 Parameters:
 
 We're given a string that represents the expression we want our function to evaluate. Strings will not be empty. 
