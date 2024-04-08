@@ -62,13 +62,8 @@ Pseudo Code:
 
 function separateLiquids(glass) 
     chart <- object with liquid:density entries
-    flat <- empty array
-
-    for each row of glass
-        push each element in row to flat array
-
-    sorted <- sort flattened array based on chart value (ascending order)
-    result <- empty glass array
+    sorted <- Reduce glass to flattened array, then sort flattened array based on chart value (ascending order)
+    result <- empty glass array to store new sorted values
 
     for each element of sorted
         row <- first index where array contains empty element
@@ -83,11 +78,8 @@ SOLUTION
 
 function separateLiquids(glass) {
     const chart = {'H': 1.36, 'W': 1, 'A': .87, 'O': .8}
-    const flat = []
-
-    glass.forEach(row => row.forEach(el => flat.push(el)))
-
-    const sorted = flat.sort((a, b) => chart[a] - chart[b])
+    const sorted = glass.reduce((arr,curr) => arr.concat(curr), [])
+                        .sort((a, b) => chart[a] - chart[b])
     const result = glass.map(row => row.map(el => el = ''))
 
     for (let i = 0; i < sorted.length; i++) {
