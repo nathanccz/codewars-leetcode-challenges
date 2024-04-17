@@ -72,9 +72,7 @@ function closestFriends(history) {
         history.reduce((obj,item) => {
             const name = Object.keys(phonebook).find(key => phonebook[key] === item.substring(0,14))
             if (!obj[name]) obj[name] = 0
-            obj[name] += item.substring(15).split(':').reduce((sum,n,i) =>         i === 0 ? 
-                                                                sum += (+n)*3600 : i === 1 ? 
-                                                                sum += (+n)*60 : sum += +n, 0)
+            obj[name] += item.substring(15).split(':').reduce((sum,n,i) => sum += (+n)*60**(2 - i), 0)
             return obj
             
         }, {})
