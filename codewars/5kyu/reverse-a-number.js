@@ -96,20 +96,3 @@ function reverseNumber(s) {
     }
     return (+result * Math.sign(s)).toString()
 }
-
-
-// console.log(reverseNumber('123456'));
-// console.log(reverseNumber('654321'));
-// console.log(reverseNumber('135246'));
-// console.log(reverseNumber('642531'));
-// console.log(reverseNumber('12333')); 
-// console.log(reverseNumber("66654"));
-// console.log(reverseNumber('133555224466'));
-// console.log(reverseNumber('12321'));
-// console.log(reverseNumber('135642'));
-// console.log(reverseNumber('13555432'));
-// console.log(reverseNumber('-123'));
-// console.log(reverseNumber('-123321'));
-// console.log(reverseNumber('420135'));
-// console.log(reverseNumber('-520025'));
-// console.log(reverseNumber('-244969809067815868079677501805063264427988149853'));
