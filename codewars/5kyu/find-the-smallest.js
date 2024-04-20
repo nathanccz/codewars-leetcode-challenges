@@ -68,13 +68,13 @@ function smallest(n) {
         for (let i = 0; i < arr.length; i++) {
             const copy = [...String(n)].filter(((_, index) => index !== ind))
             const splicer = copy.splice(i, 0, num).join('')
-            newNum = +copy.join('')
+            const newNum = +copy.join('')
             cache[ind].push(newNum)
         }
     })
 
     const result = Object.values(cache)
-    const allMins = result.map((key, ind) => Math.min(...key))
+    const allMins = result.map(key => Math.min(...key))
     const absMin = Math.min(...allMins)
     const row = result.findIndex(key => key.includes(absMin))
     
