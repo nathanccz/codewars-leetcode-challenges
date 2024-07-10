@@ -53,14 +53,12 @@ SOLUTION
 
 function reverseVowels(str) {
     const vowels = 'aeiouAEIOU'
-    const inputVowels = [...str].filter(l => vowels.includes(l)).reverse()
+    const inputVowels = [...str].filter(l => vowels.includes(l))
     let result = '' 
 
     for (let i = 0; i < str.length; i++) {
-        if (vowels.includes(str[i])) {
-            result += inputVowels[0]
-            inputVowels.shift()
-        } else result += str[i]
+        if (vowels.includes(str[i])) result += inputVowels.pop()
+            else result += str[i]
     }
 
     return result
