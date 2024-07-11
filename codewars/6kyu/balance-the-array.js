@@ -62,14 +62,15 @@ function balance(arr1, arr2) {
     if (arr1.length !== arr2.length) return false
 
     const reduceArr = arr => {
-        arr.reduce((acc, curr) => {
+        return arr.reduce((acc, curr) => {
             if (!acc.includes(curr)) acc.push([curr, 0])
             acc.find(e => e.includes(curr))[1]++
-        }).sort((a, b) => a[1] - b[1])
+            return acc
+        }, []).sort((a, b) => a[1] - b[1])
     }
 
     const arrayOne = reduceArr(arr1)
     const arrayTwo = reduceArr(arr2)
-
+    
     return arrayOne.every((e, i) => e[1] === arrayTwo[i][1])
 }
