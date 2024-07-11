@@ -63,7 +63,7 @@ function balance(arr1, arr2) {
 
     const reduceArr = arr => {
         return arr.reduce((acc, curr) => {
-            if (!acc.includes(curr)) acc.push([curr, 0])
+            if (!acc.some(e => e.includes(curr))) acc.push([curr, 0])
             acc.find(e => e.includes(curr))[1]++
             return acc
         }, []).sort((a, b) => a[1] - b[1])
