@@ -12,7 +12,10 @@ You are given a message (text) that you choose to read in a mirror (weirdo). Ret
 
 would give:
 
-
+*********
+* olleH *
+* dlroW *
+*********
 
 --------------------------------------------------------
 ANALYSIS
