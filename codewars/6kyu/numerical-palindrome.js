@@ -54,7 +54,7 @@ SOLUTION
 -------------------------------------------------------- */
 
 function palindrome(num) {
-    if (isNaN(num)) return 'Not valid'
+    if (typeof num === 'string' || num < 0) return 'Not valid'
 
     let result = [],
         strFromNum = String(num).split('').join('')
@@ -62,13 +62,14 @@ function palindrome(num) {
     for (let i = 0; i < strFromNum.length - 1; i++) {
         for (let j = 2; j <= strFromNum.length; j++) {
             let curr = strFromNum.substring(i, j)
-            console.log(curr)
             if (curr[0] !== 0 && 
                 curr[curr.length - 1] !== 0 && 
                 curr.length > 1 &&
-                curr === curr.split('').reverse().join('')) result.push(+curr)
+                +curr !== 0 &&
+                !result.includes(+curr) &&
+                curr === String(+curr).split('').reverse().join('')) result.push(+curr)
         }
     }
-
-    return result
+  if (result.length === 0) return 'No palindromes found'
+    else return result.sort((a, b) => a - b)
 }
