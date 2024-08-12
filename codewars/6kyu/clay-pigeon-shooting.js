@@ -71,13 +71,14 @@ function shoot(x){
 
     x.forEach(round => {
         let scores = round[0],
-            addTwo = round[1],
+            multiplier = round[1],
             [peteScore, philScore] = [findXs(scores.P1), findXs(scores.P2)]
       
-        if (addTwo) {
+        if (multiplier) {
             peteScore *= 2
             philScore *= 2
         }
+
         peteSum += peteScore
         philSum += philScore
     })
