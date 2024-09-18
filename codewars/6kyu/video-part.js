@@ -58,12 +58,12 @@ function reduceFraction(numerator, denominator) {
 
 function videoPart(part, total) {
     const toSeconds = str => {
-        let arr = str.split(':').map(n => +n)
+        let arr = str.split(':')
         return arr[0] * 3600 + arr[1] * 60 + arr[2]
     }
 
     let partToSec = toSeconds(part),
         totalToSec = toSeconds(total)
-  
-    return reduceFraction(partToSec, totalToSec)
+
+        
 }
