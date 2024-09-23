@@ -51,14 +51,24 @@ function videoPart(part, total)
 SOLUTION
 -------------------------------------------------------- */
 
-function videoPart(part, total) {
-    const toSeconds = str => {
-        let arr = str.split(':')
-        return arr[0] * 3600 + arr[1] * 60 + arr[2]
-    }
-
-    let partToSec = toSeconds(part),
-        totalToSec = toSeconds(total)
-
-        
-}
+function gcd(a, b) {
+    if (b === 0) return a;
+    return gcd(b, a % b);
+  }
+  
+  function reduceFraction(numerator, denominator) {
+    const gcdValue = gcd(numerator, denominator);
+    return [numerator / gcdValue, denominator / gcdValue];
+  }
+  
+  function videoPart(part, total) {
+      const toSeconds = str => {
+          let arr = str.split(':').map(n => +n)
+          return arr[0] * 3600 + arr[1] * 60 + arr[2]
+      }
+  
+      let partToSec = toSeconds(part),
+          totalToSec = toSeconds(total)
+    
+      return reduceFraction(partToSec, totalToSec)
+  }
