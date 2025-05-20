@@ -77,17 +77,17 @@ SOLUTION
 -------------------------------------------------------- */
 
 function separateLiquids(glass) {
-    const chart = {'H': 1.36, 'W': 1, 'A': .87, 'O': .8}
-    const sorted = glass.reduce((arr,curr) => arr.concat(curr), [])
-                        .sort((a, b) => chart[a] - chart[b])
-    const result = glass.map(row => row.map(el => el = ''))
+  const chart = { H: 1.36, W: 1, A: 0.87, O: 0.8 }
+  const sorted = glass
+    .reduce((arr, curr) => arr.concat(curr), [])
+    .sort((a, b) => chart[a] - chart[b])
+  const result = glass.map((row) => row.map((el) => (el = '')))
 
-    for (let i = 0; i < sorted.length; i++) {
-        const row = result.findIndex(row => row.some(slot => slot === ''))
-        const slot = result[row].findIndex(slot => slot === '')
-        result[row][slot] = sorted[i]
-    }
+  for (let i = 0; i < sorted.length; i++) {
+    const row = result.findIndex((row) => row.some((slot) => slot === ''))
+    const slot = result[row].findIndex((slot) => slot === '')
+    result[row][slot] = sorted[i]
+  }
 
-    return result
-
+  return result
 }
