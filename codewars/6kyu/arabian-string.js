@@ -50,13 +50,16 @@ function camelize(str)
 SOLUTION
 -------------------------------------------------------- */
 
-function camelize(str){
-    const alphanumeric = 'abcdefghijklmnopqrstuvwxyz0123456789'
-    const copy = str.toLowerCase()
-    let result = ''
-    for (let i = 0; i < copy.length; i++) {
-      if (!copy[i - 1] || !alphanumeric.includes(copy[i - 1])) result += copy[i].toUpperCase()
-       else if (alphanumeric.includes(copy[i])) result += copy[i]
-    }
-    return [...result].filter(char => alphanumeric.includes(char.toLowerCase())).join('')
+function camelize(str) {
+  const alphanumeric = 'abcdefghijklmnopqrstuvwxyz0123456789'
+  const copy = str.toLowerCase()
+  let result = ''
+  for (let i = 0; i < copy.length; i++) {
+    if (!copy[i - 1] || !alphanumeric.includes(copy[i - 1]))
+      result += copy[i].toUpperCase()
+    else if (alphanumeric.includes(copy[i])) result += copy[i]
+  }
+  return [...result]
+    .filter((char) => alphanumeric.includes(char.toLowerCase()))
+    .join('')
 }
