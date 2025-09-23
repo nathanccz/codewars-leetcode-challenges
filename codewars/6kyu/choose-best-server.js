@@ -78,26 +78,26 @@ function bestServer(servers) {
   }
 
   for (const server of servers) {
-    const disconnections = []
-    const delays = []
-    const currServer = {}
-    let exceedsDelayThreshold = false
+    let disconnections = 0,
+      totalDelays = 0,
+      exceedsDelayThreshold = false
 
     for (const datum of server.testdata) {
       if (datum === -1) {
-        disconnections.push(datum)
+        disconnections++
       } else if (datum < 300) {
-        delays.push(datum)
+        totalDelays += datum
       } else {
         exceedsDelayThreshold = true
         break
       }
     }
 
+    const currServer = {}
     currServer.name = server.name
-    currServer.disconnectRate = disconnections.length / server.testdata.length
+    currServer.disconnectRate = disconnections / server.testdata.length
     currServer.averageDelay =
-      delays.reduce((sum, curr) => sum + curr, 0) / delays.length
+      totalDelays / server.testdata.length - disconnections
     currServer.price = server.price
 
     if (
