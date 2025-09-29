@@ -65,18 +65,24 @@ SOLUTION
 -------------------------------------------------------- */
 
 function myCrib(n) {
-    let roof = ' '.repeat(n) + '/\\' + ' '.repeat(n) + '\n',
-        base = '' + '\n'
+  let roof = ' '.repeat(n) + '/\\' + ' '.repeat(n) + '\n',
+    base = '' + '\n'
 
-    for (let i = 1; i <= n; i++) {
-        if (i === n) {
-            roof += '/' + '_'.repeat(n * 2) + '\\'
-            base += '|' + '_'.repeat(n * 2) + '|'
-        } else {
-            roof += ' '.repeat(n - i) + '/' + ' '.repeat(i * 2) + '\\' + ' '.repeat(n - i) + '\n'
-            base += '|' + ' '.repeat(n * 2) + '|' + '\n'
-        }
+  for (let i = 1; i <= n; i++) {
+    if (i === n) {
+      roof += '/' + '_'.repeat(n * 2) + '\\'
+      base += '|' + '_'.repeat(n * 2) + '|'
+    } else {
+      roof +=
+        ' '.repeat(n - i) +
+        '/' +
+        ' '.repeat(i * 2) +
+        '\\' +
+        ' '.repeat(n - i) +
+        '\n'
+      base += '|' + ' '.repeat(n * 2) + '|' + '\n'
     }
+  }
 
-    return roof + base
+  return roof + base
 }
