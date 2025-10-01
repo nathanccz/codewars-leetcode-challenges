@@ -72,41 +72,27 @@ const fruitsName = ['apple', 'pear', 'banana']
 
 function countFruits(halfFruits) {
   const result = {}
-  const foundWords = {}
+  const available = {}
 
   for (const half of halfFruits) {
     for (const fruit of fruitsName) {
-      if (!foundWords[fruit]) {
-        foundWords[fruit] = {}
-        foundWords[fruit].firstHalf = []
-        foundWords[fruit].secondHalf = []
-      }
+      const leftLen = Math.ceil(fruit.length / 2)
+      const rightLen = Math.floor(fruit.length / 2)
 
-      let length1, length2
-
-      if (fruit.length % 2 === 0) {
-        length1 = fruit.length / 2
-        length2 = fruit.length / 2
-      } else {
-        length1 = Math.ceil(fruit.length / 2)
-        length2 = Math.floor(fruit.length / 2)
-      }
-
-      if (fruit.startsWith(half) && half.length === length1) {
-        foundWords[fruit].firstHalf.push(half)
-      } else if (fruit.endsWith(half) && half.length === length2) {
-        foundWords[fruit].secondHalf.push(half)
+      if (half.length === leftLen && fruit.startsWith(half)) {
+        available[fruit] = available[fruit] || { first: 0, second: 0 }
+        available[fruit].first++
+      } else if (half.length === rightLen && fruit.endsWith(half)) {
+        available[fruit] = available[fruit] || { first: 0, second: 0 }
+        available[fruit].second++
       }
     }
   }
 
-  for (const word in foundWords) {
-    const count = Math.min(
-      foundWords[word].firstHalf.length,
-      foundWords[word].secondHalf.length
-    )
+  for (const fruit in available) {
+    const count = Math.min(available[fruit].first, available[fruit].second)
     if (count > 0) {
-      result[word] = count
+      result[fruit] = count
     }
   }
 
