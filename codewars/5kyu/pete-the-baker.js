@@ -49,9 +49,12 @@ function cakes(recipe, available)
 SOLUTION
 -------------------------------------------------------- */
 
-function cakes(recipe,available) {
-    const stock = Object.keys(available).filter(key => recipe[key])
-    const ingredients = Object.keys(recipe)
-    return (!ingredients.every(ing => available[ing])) ? 0 :
-           Math.min(...stock.map(item => Math.floor(available[item] / recipe[item])))
+function cakes(recipe, available) {
+  const stock = Object.keys(available).filter((key) => recipe[key])
+  const ingredients = Object.keys(recipe)
+  return !ingredients.every((ing) => available[ing])
+    ? 0
+    : Math.min(
+        ...stock.map((item) => Math.floor(available[item] / recipe[item]))
+      )
 }
