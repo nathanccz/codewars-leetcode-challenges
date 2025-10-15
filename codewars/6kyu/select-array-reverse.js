@@ -81,10 +81,9 @@ function selReverse(array, length) {
 
   for (let i = 1; i <= array.length; i++) {
     const num = array[i - 1]
-    if (i % length !== 0) {
-      curr.push(num)
-    } else {
-      curr.push(num)
+    curr.push(num)
+
+    if (i % length === 0) {
       results.push(...curr.reverse())
       curr = []
     }
